@@ -120,7 +120,7 @@ namespace Trivia
             {
                 IBankAccount Server = SEconomyPlugin.Instance.GetBankAccount(TSServerPlayer.Server.UserID);
                 IBankAccount Player = SEconomyPlugin.Instance.GetBankAccount(ts.Index);
-                Server.TransferToAsync(Player, Config.CurrencyAmount, BankAccountTransferOptions.AnnounceToReceiver, "answering the trivia question correctly", "Answered trivia question");
+                SEconomyPlugin.Instance.WorldAccount.TransferToAsync(Player, Config.CurrencyAmount, BankAccountTransferOptions.AnnounceToReceiver, "answering the trivia question correctly", "Answered trivia question");
             }
             else
                 ts.SendErrorMessage("[Trivia] Transaction failed because SEconomy is disabled!");
