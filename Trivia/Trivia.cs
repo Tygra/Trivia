@@ -6,7 +6,7 @@ using System.Reflection;
 
 namespace Trivia
 {
-    [ApiVersion(1,21)]
+    [ApiVersion(1,22)]
     public class Trivia : TerrariaPlugin
     {
         public static TriviaManager TriviaManager = new TriviaManager();
@@ -50,12 +50,12 @@ namespace Trivia
         {
             if (args.Parameters.Count < 1)
             {
-                args.Player.SendErrorMessage("Invalid syntax! proper syntax: /answer (or /a) <answer here>");
+                args.Player.SendErrorMessage("Invalid syntax! proper syntax: /a answer");
                 return;
             }
             if (!TriviaManager.PendingAnswer)
             {
-                args.Player.SendErrorMessage("Trivia isn't currently running!");
+                args.Player.SendErrorMessage("Pun of the Minute isn't currently running!");
                 return;
             }
             string answer = string.Join(" ", args.Parameters);
@@ -64,7 +64,7 @@ namespace Trivia
             else
             {
                 TriviaManager.WrongAnswers.Add(answer);
-                args.Player.SendErrorMessage(string.Format("{0} is not the correct answer! better luck next time!", answer));
+                args.Player.SendErrorMessage(string.Format("{0} is not the correct answer!", answer));
             }
         }
 

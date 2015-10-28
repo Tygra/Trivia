@@ -87,7 +87,7 @@ namespace Trivia
                 count = 0;
                 QuestionAsked = false;
                 WrongAnswers.Clear();
-                TSPlayer.All.SendErrorMessage("[Trivia] Time is up!");
+                TSPlayer.All.SendErrorMessage("[Pun of the Minute] Time is up!");
             }
         }
 
@@ -98,8 +98,8 @@ namespace Trivia
 
         private void AnnouceQuestion()
         {
-            TSPlayer.All.SendInfoMessage("[Trivia] Type /answer or /a <answer here>");
-            TSPlayer.All.SendInfoMessage("[Trivia] " + CurrentQandA.Question);
+            TSPlayer.All.SendInfoMessage("[Pun of the Minute] Type /a answer");
+            TSPlayer.All.SendInfoMessage("[Pun of the Minute] " + CurrentQandA.Question);
         }
 
         private void SetNewQandA()
@@ -123,7 +123,7 @@ namespace Trivia
                 SEconomyPlugin.Instance.WorldAccount.TransferToAsync(Player, Config.CurrencyAmount, BankAccountTransferOptions.AnnounceToReceiver, "answering the trivia question correctly", "Answered trivia question");
             }
             else
-                ts.SendErrorMessage("[Trivia] Transaction failed because SEconomy is disabled!");
+                ts.SendErrorMessage("[Pun of the Minute] Transaction failed because SEconomy is disabled!");
         }
     }
 }
